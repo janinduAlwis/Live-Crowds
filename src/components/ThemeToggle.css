@@ -1,0 +1,40 @@
+.ios-switch {
+  width: 51px;
+  height: 31px;
+  border-radius: 31px;
+  background-color: #E9E9EB; /* Classic iOS Light grey */
+  border: none;
+  cursor: pointer;
+  position: relative;
+  transition: background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  padding: 2px;
+}
+
+[data-theme='dark'] .ios-switch {
+  background-color: #39393D; /* Classic iOS Dark grey if off */
+}
+
+/* iOS green when active */
+.ios-switch.active {
+  background-color: var(--status-quiet); /* Apple Green */
+}
+
+.ios-switch-thumb {
+  width: 27px;
+  height: 27px;
+  border-radius: 50%;
+  background-color: #FFFFFF;
+  position: absolute;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.15), 0 1px 1px rgba(0,0,0,0.16), 0 3px 1px rgba(0,0,0,0.1);
+  transition: transform 0.3s cubic-bezier(0.2, 0.85, 0.32, 1.2);
+}
+
+.ios-switch:not(.active) .ios-switch-thumb {
+  transform: translateX(0);
+}
+
+.ios-switch.active .ios-switch-thumb {
+  transform: translateX(20px);
+}

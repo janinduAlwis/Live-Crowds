@@ -1,0 +1,299 @@
+.location-card {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background-color: var(--bg-secondary);
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 0.5px solid var(--border-color);
+}
+
+.location-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+}
+
+.card-image-container {
+  position: relative;
+  height: 220px;
+  width: 100%;
+}
+
+.card-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.status-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: white;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  letter-spacing: -0.01em;
+}
+
+.status-quiet { background-color: rgba(52, 199, 89, 0.9); }
+.status-moderate { background-color: rgba(255, 149, 0, 0.9); }
+.status-crowded { background-color: rgba(255, 59, 48, 0.9); }
+
+.card-content {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.card-content h3 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+  letter-spacing: -0.03em;
+}
+
+.crowd-stats {
+  margin-top: auto;
+  margin-bottom: 1.5rem;
+  background-color: var(--bg-primary);
+  padding: 1rem;
+  border-radius: var(--radius-md);
+}
+
+.crowd-count {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  margin-bottom: 0.75rem;
+}
+
+.crowd-count strong {
+  color: var(--text-primary);
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.progress-bar-bg {
+  width: 100%;
+  height: 6px;
+  background-color: var(--border-color);
+  border-radius: 999px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  border-radius: 999px;
+  transition: width 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.status-quiet-bg { background-color: var(--status-quiet); }
+.status-moderate-bg { background-color: var(--status-moderate); }
+.status-crowded-bg { background-color: var(--status-crowded); }
+
+.capacity-text {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  text-align: right;
+  font-weight: 500;
+}
+
+/* iOS Pill Button */
+.checkin-btn {
+  width: 100%;
+  padding: 0.9rem;
+  border-radius: 999px;
+  border: none;
+  background-color: var(--accent-color);
+  color: white;
+  font-weight: 600;
+  font-size: 1.05rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  cursor: pointer;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease;
+  box-shadow: 0 4px 14px rgba(0, 122, 255, 0.3);
+}
+
+.checkin-btn:hover:not(:disabled) {
+  background-color: var(--accent-hover);
+  transform: scale(1.02);
+}
+
+.checkin-btn:active:not(:disabled) {
+  transform: scale(0.97);
+}
+
+.checkin-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  box-shadow: none;
+  background-color: var(--text-secondary);
+}
+
+.checkout-btn {
+  background-color: var(--status-moderate) !important;
+  box-shadow: 0 4px 14px rgba(255, 149, 0, 0.3) !important;
+}
+
+.checkout-btn:hover:not(:disabled) {
+  background-color: #E68600 !important;
+}
+
+/* Active State Styles */
+.active-location-card {
+  border: 1.5px solid var(--status-moderate);
+  box-shadow: 0 0 25px rgba(255, 149, 0, 0.15);
+}
+
+.active-dot {
+  color: var(--status-quiet);
+  font-size: 1rem;
+  vertical-align: middle;
+  margin-left: 0.4rem;
+  animation: pulseApple 2.5s infinite cubic-bezier(0.4, 0, 0.6, 1);
+}
+
+@keyframes pulseApple {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(0.8); }
+}
+
+/* iOS Full Screen Modal Overlay */
+.ios-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.ios-modal {
+  width: 300px;
+  background: var(--bg-glass);
+  backdrop-filter: blur(40px) saturate(200%);
+  -webkit-backdrop-filter: blur(40px) saturate(200%);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 0.5px solid var(--border-color);
+}
+
+@keyframes popIn {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.ios-modal h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.2rem;
+  letter-spacing: -0.02em;
+}
+
+.ios-modal p {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+}
+
+.modal-counter-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 1.8rem;
+}
+
+.modal-counter-btn {
+  background-color: var(--bg-primary);
+  border: none;
+  font-size: 1.5rem;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  color: var(--accent-color);
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: transform 0.1s;
+}
+
+.modal-counter-btn:active {
+  transform: scale(0.85);
+  background-color: var(--border-color);
+}
+
+.modal-counter-value {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  min-width: 40px;
+  text-align: center;
+}
+
+.modal-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.modal-confirm-btn {
+  width: 100%;
+  padding: 0.8rem;
+  border-radius: 999px;
+  background-color: var(--accent-color);
+  color: white;
+  border: none;
+  font-weight: 600;
+  font-size: 1.05rem;
+  cursor: pointer;
+}
+
+.modal-confirm-btn:active {
+  filter: brightness(0.9);
+  transform: scale(0.98);
+}
+
+.modal-cancel-btn {
+  width: 100%;
+  padding: 0.8rem;
+  border-radius: 999px;
+  background-color: transparent;
+  color: var(--accent-color);
+  border: none;
+  font-weight: 600;
+  font-size: 1.05rem;
+  cursor: pointer;
+}
+
+.modal-cancel-btn:active {
+  background-color: rgba(0,0,0,0.05);
+}

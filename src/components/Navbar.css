@@ -1,0 +1,33 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 0.5px solid var(--border-color);
+}
+
+/* Inherits the .glass-panel from index.css for Authentic Apple Blur */
+
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.8rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  color: var(--text-primary);
+}
+
+.navbar-logo h1 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: -0.04em; /* Classic SF Pro Display tight tracking */
+}
+
+.logo-icon {
+  color: var(--text-primary);
+}

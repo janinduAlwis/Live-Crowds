@@ -1,0 +1,86 @@
+:root {
+  /* iOS 18 Light Theme Variables */
+  --bg-primary: #F2F2F7;
+  --bg-secondary: #FFFFFF;
+  --bg-glass: rgba(255, 255, 255, 0.75);
+  --text-primary: #000000;
+  --text-secondary: #8E8E93;
+  --accent-color: #007AFF;
+  --accent-hover: #0051D5;
+  --border-color: rgba(60, 60, 67, 0.1);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.08); /* Soft Apple drop shadow */
+  
+  /* Status Colors (iOS style) */
+  --status-quiet: #34C759;
+  --status-moderate: #FF9500;
+  --status-crowded: #FF3B30;
+
+  --transition-speed: 0.4s;
+  --radius-xl: 32px;
+  --radius-lg: 24px;
+  --radius-md: 16px;
+  --radius-sm: 10px;
+}
+
+[data-theme='dark'] {
+  /* iOS 18 Dark Theme Variables */
+  --bg-primary: #000000;
+  --bg-secondary: #1C1C1E;
+  --bg-glass: rgba(28, 28, 30, 0.75);
+  --text-primary: #FFFFFF;
+  --text-secondary: #EBEBF599;
+  --accent-color: #0A84FF;
+  --accent-hover: #006FED;
+  --border-color: rgba(84, 84, 88, 0.65);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.2);
+  --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.4);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  /* Authentic Apple Font Stack */
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.5;
+  transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  letter-spacing: -0.015em;
+}
+
+a {
+  color: var(--accent-color);
+  text-decoration: none;
+  transition: color var(--transition-speed) ease;
+}
+
+a:hover {
+  color: var(--accent-hover);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Authentic iOS Glassmorphism utility */
+.glass-panel {
+  background: var(--bg-glass);
+  backdrop-filter: blur(30px) saturate(200%);
+  -webkit-backdrop-filter: blur(30px) saturate(200%);
+  border: 0.5px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Scrollbar hidden to feel native */
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}

@@ -1,0 +1,86 @@
+.active-session-banner {
+  background: var(--bg-glass);
+  backdrop-filter: blur(40px) saturate(200%);
+  -webkit-backdrop-filter: blur(40px) saturate(200%);
+  border: 0.5px solid var(--status-moderate);
+  color: var(--text-primary);
+  padding: 0.85rem 1.25rem;
+  position: sticky;
+  top: 85px; /* Just below navbar */
+  z-index: 99;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  animation: slideDownApple 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  max-width: 600px;
+  margin: 1rem auto;
+  border-radius: var(--radius-xl);
+}
+
+@keyframes slideDownApple {
+  from { transform: translateY(-120%) scale(0.9); opacity: 0; }
+  to { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+.banner-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.banner-text {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.95rem;
+  letter-spacing: -0.015em;
+  font-weight: 500;
+}
+
+.banner-text strong {
+  font-weight: 700;
+  color: var(--status-moderate);
+}
+
+.pulse-icon {
+  animation: pulseAppleIcon 2s infinite;
+  color: var(--status-moderate);
+}
+
+@keyframes pulseAppleIcon {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.85); }
+}
+
+.banner-checkout-btn {
+  background-color: var(--status-moderate);
+  color: white;
+  border: none;
+  border-radius: 999px;
+  padding: 0.6rem 1.2rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s;
+  box-shadow: 0 4px 12px rgba(255, 149, 0, 0.2);
+}
+
+.banner-checkout-btn:active {
+  transform: scale(0.95);
+  opacity: 0.8;
+}
+
+@media (max-width: 600px) {
+  .active-session-banner {
+    margin: 1rem;
+    padding: 1rem;
+    border-radius: var(--radius-lg);
+  }
+  .banner-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+}
